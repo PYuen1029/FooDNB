@@ -21,16 +21,13 @@ class Day extends Model
         return $this->hasMany('App\FoodItem');
     }
 
-    // converts activateime to Carbon object
+    // converts activate_time to Carbon object
     protected $dates = ['activate_time'];
-
-    public function setActivateTimeAttribute($date)
-    {
-        $this->attributes['activate_time'] = Carbon::parse($date);
-    }
 
     public function scopeActive($query)
     {
-        $query->where('activate_time', '<=', Carbon::now());
+        $dateRef = Carbon::now();
+        $dateRef->subDays(7);
+        $query->whereBetween('activate_time', [$dateRef, Carbon::now()]);
     }
 }
