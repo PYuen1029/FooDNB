@@ -17,3 +17,14 @@ Route::controllers([
     'auth' => 'Auth\AuthController',
     'password' => 'Auth\PasswordController',
 ]);
+
+Route::get('days/{id}', 'PagesController@showDay');
+
+Route::resource('days.foodItems', 'foodItemsController');
+
+// Route Model Binding
+Route::bind('days', 'day');
+
+Route::bind('days/{dayID}/foodItems', 'foodItem');
+
+
