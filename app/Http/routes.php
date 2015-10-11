@@ -22,9 +22,11 @@ Route::get('days/{id}', 'PagesController@showDay');
 
 Route::resource('days.foodItems', 'foodItemsController');
 
-// Route Model Binding
-Route::bind('days', 'day');
 
-Route::bind('days/{dayID}/foodItems', 'foodItem');
+// Route Model Binding
+
+Route::model('days.foodItems', 'App\foodItem');
+
+Route::bind('days.foodItems', 'App\foodItem');
 
 

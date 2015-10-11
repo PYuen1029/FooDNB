@@ -72,11 +72,14 @@ class foodItemsController extends Controller
      */
     public function update(Request $request, $dayID, $foodID)
     {
+
         $food = Day::findOrFail($dayID)->foodItem()->findOrFail($foodID);
 
         $food->update($request->all());
 
-        return redirect('days/$dayID/foodItems/$foodID');
+        $day = Day::findOrFail($dayID);
+
+        return view('pages.showDay', compact('day'));
     }
 
     /**

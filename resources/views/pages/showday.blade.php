@@ -9,23 +9,16 @@
         margin-right: auto;
     }
 
-    .list-group-item a {
-		font-size: 20px;
-	}
-
-    .form-inline .form-control {
-        width: 43px;
+    li.list-group-item {
+        height:50px;
     }
 
-    .qty-form a:link, #qty-form a:visited, #qty-form a:hover, #qty-form a:active{
-        text-decoration: none;
-        color: black;
-
+    div.inline input.col-xs-2[type="button" i] {
+        padding: 1px 0px;
     }
 
-    .qty-form input {
-        padding-left: 12px;
-    }
+
+   
 
 </style>
 
@@ -46,26 +39,37 @@
 @foreach($day->foodItem as $foodItem)
     <li class="list-group-item">
         
-        <a href="#">
+        <!-- <a href="#">
             {{ $foodItem->name }}
-        </a>
+        </a> -->
         
     	<!-- Form input for changing quantity -->
-    	{!! Form::open(["class" => "qty-form form-inline pull-right", "method" => "PATCH" ]) !!}
+    	<!-- !! Form::open(["class" => "qty-form form-inline pull-right", "method" => "PATCH" ]) !! -->
+        {!! Form::model($foodItem, 
+            ['method' => 'PATCH', 
+            'route' => ['days.foodItems.update', $day->id, $foodItem->id],
+            'class' => "qty-form form-inline"
+            ]) !!}
 
-            <!-- <div class = "btn col-xs-2 down"> <span class = "glyphicon glyphicon-chevron-down"></span> </div> -->
-            
-            <input type="button" class="down col-xs-2" value="-" data-min="0"/>
-      
-            {!! Form::text('quantity', $foodItem->quantity, ['class' => 'form-control col-xs-4', ]) !!}
+            {!! Form::text('name', null, ['class' => 'col-xs-8']) !!}
 
-            <!-- <div class = "btn col-xs-2 up"> <span class = "glyphicon glyphicon-chevron-up"></span> </div> -->
+            <div class="inline col-xs-4 pull-right"> 
 
-            <input type="button" class="up col-xs-2" value="+" data-max="50"/>
+                <!-- <div class = "btn col-xs-2 down"> <span class = "glyphicon glyphicon-chevron-down"></span> </div> -->
+                
+                <input type="button" class="down col-xs-2" value="-" data-min="0"/>
+          
+                {!! Form::text('quantity', null, ['class' => 'col-xs-3']) !!}
 
-            <input type="button" class="delete col-xs-2" value="&#x2715" name="delete" /> 
-            
-            <input type="submit" class="submit col-xs-2" value="&#x2705" name="submit" /> 
+                <!-- <div class = "btn col-xs-2 up"> <span class = "glyphicon glyphicon-chevron-up"></span> </div> -->
+
+                <input type="button" class="up col-xs-2" value="+" data-max="50"/>
+
+                <input type="button" class="delete col-xs-2" value="&#x2715" name="delete" /> 
+                
+                <input type="submit" class="submit col-xs-2" value="&#x2705" name="submit" /> 
+
+            </div>
             
 
 
