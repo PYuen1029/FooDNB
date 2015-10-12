@@ -36,9 +36,13 @@ class foodItemsController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Request $request, $dayID)
     {
-        //
+        $dayinput = Day::findOrFail($dayID)->foodItem()->create($request->all())->save();
+
+        $day = Day::findOrFail($dayID);
+
+        return view('pages.showDay', compact('day'));
     }
 
     /**
