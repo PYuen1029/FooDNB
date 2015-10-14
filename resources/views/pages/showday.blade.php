@@ -24,6 +24,16 @@
         
     }
 
+    a.delete {
+    -webkit-appearance: button;
+    -moz-appearance: button;
+    appearance: button;
+
+    text-decoration: none;
+    color: initial;
+    padding: 1px 6px;
+    }
+
 
    
 
@@ -32,6 +42,40 @@
 @stop
 
 @section('js')
+
+
+@stop
+
+<!-- CONTENT SECTION -->
+@section('content')
+<!-- <div class="btn-group">
+  <a href="#" class="btn btn-primary">Download</a>
+  <a href="#" class="btn btn-default">Mirror</a>
+</div> -->
+
+<ul class="list-group col-xs-11" id="foodItemRows">
+@foreach($day->foodItem as $foodItem)
+    <li class="list-group-item">
+        
+    	<!-- Form input for changing quantity -->
+
+            @include('pages.partials._foodItemForm', [
+            'option' => 'edit',
+            'qtyOrClmd' => 'quantity'])
+        
+    </li>
+
+@endforeach
+
+</ul>
+
+<ul class="list-group col-md-9 col-xs-11">
+    <button type="button" class="addRow btn btn-primary btn-block" id="createButton">
+        <span class="glyphicon glyphicon-plus"></span> ADD A FOOD ITEM
+    </button>
+</ul>
+
+
 <!-- INCREMENT/DECREMENT QTY FIELD  -->
 <script>
   $(document).ready(function() {
@@ -51,43 +95,21 @@
     });
 </script>
 
-<!-- SHOW NEW foodItemForm ON CLICK -->
+<!-- CREATE NEW foodItemForm ON CLICK, CONTAINS NEW FORM CODE, when I want I should assign a placeholder value for name -->
 <script type="text/javascript">
     $(document).ready(function () {
-        str_to_append = '<li class="list-group-item">{!! Form::open([ "method"=> "POST", "route"=> ["days.foodItems.store", $day->id]]) !!}{!! Form::text("name", null, [ "class"=> "col-xs-4",]) !!}<input type="button" class="down col-xs-1" value="-" data-min="0"/>{!! Form::text("quantity", null, ["class"=> "col-xs-1", "maxlength"=> "2"]) !!}<input type="button" class="up col-xs-1" value="+" data-max="50"/> <input type="button" class="down col-xs-1" value="-" data-min="0"/>{!! Form::text("claimed", null, ["class"=> "col-xs-1", "maxlength"=> "2"]) !!}<input type="button" class="up col-xs-1" value="+" data-max="50"/> <input type="button" class="delete col-xs-1" value="&#x2715" name="delete"/> <input type="submit" class="submit col-xs-1" value="&#x2705" name="submit"/>{!! Form::close() !!}';
+        str_to_append = '<li class="list-group-item">{!! Form::open(["method"=> "POST", "route"=> ["days.foodItems.store", $day->id]]) !!}{!! Form::text("name", null, [ "class"=> "col-xs-4",]) !!}<input type="button" class="down col-xs-1" value="-" data-min="0"/>{!! Form::text("quantity", 1, ["class"=> "col-xs-1", "maxlength"=> "2"]) !!}<input type="button" class="up col-xs-1" value="+" data-max="50"/> <input type="submit" class="submit col-xs-1" value="&#x2705" name="submit"/> ';
         $(".addRow").click(function () {
             $("#foodItemRows").append(str_to_append)
         })
     })
+</script>
+
+<script type="text/javascript">
+$(".delete").click(function () {
+  window.location.href = $(this).data('href');
+});
 
 </script>
-@stop
-
-<!-- CONTENT SECTION -->
-@section('content')
-<!-- <div class="btn-group">
-  <a href="#" class="btn btn-primary">Download</a>
-  <a href="#" class="btn btn-default">Mirror</a>
-</div> -->
-
-<ul class="list-group col-xs-11" id="foodItemRows">
-@foreach($day->foodItem as $foodItem)
-    <li class="list-group-item">
-        
-    	<!-- Form input for changing quantity -->
-
-            @include('pages.partials._foodItemForm', ['option' => 'edit'])
-        
-    </li>
-
-@endforeach
-
-</ul>
-
-<ul class="list-group col-md-9 col-xs-11">
-    <button type="button" class="addRow btn btn-primary btn-block" id="createButton">
-        <span class="glyphicon glyphicon-plus"></span> ADD A FOOD ITEM
-    </button>
-</ul>
 
 @stop

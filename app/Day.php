@@ -16,13 +16,19 @@ class Day extends Model
     // since the plural of fish isnt what we named our database table we have to define it
     protected $table = 'days';
 
-    // DEFINE RELATIONSHIPS --------------------------------------------------
+    // converts to Carbon objects
+    protected $dates = ['activate_time'];
+
+   
+
+    /**
+     * Each day has many foodItems
+     * @return foodItem Returns all foodItems associated with the day
+     */
     public function foodItem() {
         return $this->hasMany('App\FoodItem');
     }
 
-    // converts activate_time to Carbon object
-    protected $dates = ['activate_time'];
 
     /**
      * Limits the days shown to within $numDays of today.

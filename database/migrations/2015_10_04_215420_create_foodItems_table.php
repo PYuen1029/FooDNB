@@ -26,6 +26,8 @@ class CreateFoodItemsTable extends Migration
 
             $table->string('claimees')->nullable(); // unformatted string, mostly just for record keeping. Won't be shown on the front-end.
 
+            $table->softDeletes(); // adds softDeletes column, which stores a date and indicates this item has been deleted.
+
         });
     }
 

@@ -18,7 +18,9 @@ Route::controllers([
     'password' => 'Auth\PasswordController',
 ]);
 
-Route::get('days/{id}', 'PagesController@showDay');
+Route::get('days/{id}', [
+    'as' => 'showDay', 'uses' => 'PagesController@showDay'
+]);
 
 Route::resource('days.foodItems', 'foodItemsController');
 
