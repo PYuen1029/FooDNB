@@ -31,7 +31,19 @@
 
     text-decoration: none;
     color: initial;
-    padding: 1px 6px;
+    }
+
+/* DOES THIS WORK? */
+    form.qty-form.form-inline {
+        padding-right: 0px;
+    }
+
+    .pull-right {
+        padding-right: 0px;
+    }
+
+    .delete {
+        padding-left: 0px;
     }
 
 
@@ -98,7 +110,7 @@
 <!-- CREATE NEW foodItemForm ON CLICK, CONTAINS NEW FORM CODE, when I want I should assign a placeholder value for name -->
 <script type="text/javascript">
     $(document).ready(function () {
-        str_to_append = '<li class="list-group-item">{!! Form::open(["method"=> "POST", "route"=> ["days.foodItems.store", $day->id]]) !!}{!! Form::text("name", null, [ "class"=> "col-xs-4",]) !!}<input type="button" class="down col-xs-1" value="-" data-min="0"/>{!! Form::text("quantity", 1, ["class"=> "col-xs-1", "maxlength"=> "2"]) !!}<input type="button" class="up col-xs-1" value="+" data-max="50"/> <input type="submit" class="submit col-xs-1" value="&#x2705" name="submit"/> ';
+        str_to_append = '<li class="list-group-item">{!! Form::open(["method"=> "POST", "route"=> ["days.foodItems.store", $day->id]]) !!}{!! Form::text("name", null, [ "class" => "col-xs-4",]) !!}<span class="pull-right col-xs-6"> <input type="button" class="down col-xs-2" value="-" data-min="0"/>{!! Form::text("quantity", null, ["class"=> "col-xs-3", "maxlength"=> "2"]) !!}<input type="button" class="up col-xs-2" value="+" data-max="50"/> <input type="submit" class="submit col-xs-3" value="&#x2705" name="submit"/> </span> {!! Form::close() !!} ';
         $(".addRow").click(function () {
             $("#foodItemRows").append(str_to_append)
         })

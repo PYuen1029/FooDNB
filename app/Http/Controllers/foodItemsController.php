@@ -94,6 +94,11 @@ class foodItemsController extends Controller
      */
     public function destroy($dayID, $foodID)
     {
-        $destroy = foodItem::findOrFail($foodID)->
+        $destroy = foodItem::findOrFail($foodID);
+        $destroy->delete();
+
+        $day = Day::findOrFail($dayID);
+
+        return view('pages.showDay', compact('day'));
     }
 }
