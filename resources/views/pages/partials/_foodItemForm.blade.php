@@ -14,11 +14,6 @@
             <!-- FORM INPUT FOR QUANTITY, WITH INC/DEC BUTTONS -->
             <input type="button" class="down col-xs-3" value="-" data-min="0"/>
 
-            <!--
-            DEBUGGING
-            -->
-            {!! Form::hidden('quantity') !!}
-
             {!! Form::text($qtyOrClmd, null, 
             ['class' => "col-xs-3",
             'maxlength' => "2"]) !!}

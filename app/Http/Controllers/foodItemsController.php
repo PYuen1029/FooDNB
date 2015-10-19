@@ -81,6 +81,8 @@ class foodItemsController extends Controller
 
         $food->update($request->all());
 
+        dd ($food, $request);
+
         $day = Day::findOrFail($dayID);
 
         return back();
