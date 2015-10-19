@@ -4,6 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use Carbon\Carbon;
 
 class foodItem extends Model
 {
@@ -19,6 +20,8 @@ class foodItem extends Model
     // allows for softDeletes (see http://laravel.com/docs/5.1/eloquent#deleting-models)
     use SoftDeletes;
 
+    // MUTATORS --------------------------------------------------------------
+
     /**
      * The attributes that should be mutated to dates.
      *
@@ -26,8 +29,25 @@ class foodItem extends Model
      */
     protected $dates = ['deleted_at'];
 
+    public function SetClaimedAttribute($int = 0)
+    {
+        return $int;
+    }
 
-    // DEFINE RELATIONSHIPS --------------------------------------------------
+
+    // SCOPES ----------------------------------------------------------------
+    public function scopeEdible($query)
+    {
+        // temporarily set it to Oct 7, just for testing
+        $dateRef = Carbon::create(2015, 10, 7, 15);
+
+        // change depending on far into the past you want days to be accessed
+        $dateRef->subDays(7);
+        $query->where('updated_at', '>', $dateRef);
+    }
+
+
+    // RELATIONSHIPS --------------------------------------------------
     public function day() {
         return $this->belongsTo('App\Day');
     }

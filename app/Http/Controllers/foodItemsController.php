@@ -42,7 +42,7 @@ class foodItemsController extends Controller
 
         $day = Day::findOrFail($dayID);
 
-        return view('pages.showDay', compact('day'));
+        return back();
     }
 
     /**
@@ -83,7 +83,7 @@ class foodItemsController extends Controller
 
         $day = Day::findOrFail($dayID);
 
-        return view('pages.showDay', compact('day'));
+        return back();
     }
 
     /**
@@ -99,6 +99,6 @@ class foodItemsController extends Controller
 
         $day = Day::findOrFail($dayID);
 
-        return view('pages.showDay', compact('day'));
+        return back();
     }
 }

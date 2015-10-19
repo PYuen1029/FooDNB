@@ -72,7 +72,6 @@
     	<!-- Form input for changing quantity -->
 
             @include('pages.partials._foodItemForm', [
-            'option' => 'edit',
             'qtyOrClmd' => 'quantity'])
         
     </li>
