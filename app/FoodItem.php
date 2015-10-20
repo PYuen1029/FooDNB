@@ -29,9 +29,13 @@ class foodItem extends Model
      */
     protected $dates = ['deleted_at'];
 
-    public function SetClaimedAttribute($int = 0)
+    public function setClaimedAttribute($value)
     {
-        return $int;
+        if (!$value){
+            $int = 0;
+        }
+
+        $this->attributes['claimed'] = $value;
     }
 
 
