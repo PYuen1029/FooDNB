@@ -54,39 +54,6 @@
 @stop
 
 @section('js')
-
-
-@stop
-
-<!-- CONTENT SECTION -->
-@section('content')
-<!-- <div class="btn-group">
-  <a href="#" class="btn btn-primary">Download</a>
-  <a href="#" class="btn btn-default">Mirror</a>
-</div> -->
-
-<ul class="list-group col-xs-11" id="foodItemRows">
-@foreach($day->foodItem as $foodItem)
-    <li class="list-group-item">
-        
-    	<!-- Form input for changing quantity -->
-
-            @include('pages.partials._foodItemForm', [
-            'qtyOrClmd' => 'quantity'])
-        
-    </li>
-
-@endforeach
-
-</ul>
-
-<ul class="list-group col-md-9 col-xs-11">
-    <button type="button" class="addRow btn btn-primary btn-block" id="createButton">
-        <span class="glyphicon glyphicon-plus"></span> ADD A FOOD ITEM
-    </button>
-</ul>
-
-
 <!-- INCREMENT/DECREMENT QTY FIELD  -->
 <script>
   $(document).ready(function() {
@@ -122,5 +89,38 @@ $(".delete").click(function () {
 });
 
 </script>
+
+@stop
+
+<!-- CONTENT SECTION -->
+@section('content')
+<!-- <div class="btn-group">
+  <a href="#" class="btn btn-primary">Download</a>
+  <a href="#" class="btn btn-default">Mirror</a>
+</div> -->
+
+<ul class="list-group col-xs-11" id="foodItemRows">
+@foreach($day->foodItem as $foodItem)
+    <li class="list-group-item">
+        
+    	<!-- Form input for changing quantity -->
+
+            @include('pages.partials._foodItemForm', [
+            'qtyOrClmd' => 'quantity'])
+        
+    </li>
+
+@endforeach
+
+</ul>
+
+<ul class="list-group col-md-9 col-xs-11">
+    <button type="button" class="addRow btn btn-primary btn-block" id="createButton">
+        <span class="glyphicon glyphicon-plus"></span> ADD A FOOD ITEM
+    </button>
+</ul>
+
+
+
 
 @stop

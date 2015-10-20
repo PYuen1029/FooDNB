@@ -40,8 +40,6 @@ class foodItemsController extends Controller
     {
         $dayinput = Day::findOrFail($dayID)->foodItem()->create($request->all())->save();
 
-        $day = Day::findOrFail($dayID);
-
         return back();
     }
 
@@ -81,10 +79,6 @@ class foodItemsController extends Controller
 
         $food->update($request->all());
 
-        dd ($food, $request);
-
-        $day = Day::findOrFail($dayID);
-
         return back();
     }
 
@@ -97,9 +91,8 @@ class foodItemsController extends Controller
     public function destroy($dayID, $foodID)
     {
         $destroy = foodItem::findOrFail($foodID);
+        
         $destroy->delete();
-
-        $day = Day::findOrFail($dayID);
 
         return back();
     }

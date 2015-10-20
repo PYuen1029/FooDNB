@@ -60,6 +60,30 @@
 </style>
 @stop
 
+@section('js')
+<!-- INCREMENT/DECREMENT QTY FIELD  -->
+<script>
+  $(document).ready(function() {
+        $(".up").on('click',function(){
+            var $incdec = $(this).prev();
+            if ($incdec.val() < $(this).data("max")) {
+                $incdec.val(parseInt($incdec.val(), 10) + 1);
+            }
+        });
+
+        $(".down").on('click',function(){
+            var $incdec = $(this).next();
+            if ($incdec.val() > $(this).data("min")) {
+            $incdec.val(parseInt($incdec.val(), 10) - 1);
+            }
+        });
+    });
+</script>
+
+@stop
+
+
+
 <!-- CONTENT SECTION -->
 @section('content')
 <!-- LIST LEFTOVER FOODITEMS -->
