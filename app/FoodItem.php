@@ -28,7 +28,10 @@ class foodItem extends Model
      * @var array
      */
     protected $dates = ['deleted_at'];
-
+    /**
+     * checks if Claimed is null, if so set it to 0
+     * @param int $value The claimed field's value upon setting.
+     */             
     public function setClaimedAttribute($value)
     {
         if (!$value){

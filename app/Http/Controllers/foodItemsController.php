@@ -77,6 +77,27 @@ class foodItemsController extends Controller
 
         $food = Day::findOrFail($dayID)->foodItem()->findOrFail($foodID);
 
+        // check if $request->claimed exists
+        if ($rqstClm = $request->claimed){
+
+            // if so, find difference between $request->claimed and $food->claimed
+            $diff = $rqstClm - $food->claimed;
+
+            // do some error checking to make sure quantity is great enough
+            if($diff <= $food->quantity){
+                // subtract that difference to quantity
+                $food->quantity -= $diff;
+
+            }
+
+            else {
+                abort(404);
+            }
+
+            
+        }
+
+
         $food->update($request->all());
 
         return back();
