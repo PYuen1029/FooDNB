@@ -15,6 +15,7 @@ class DatabaseSeeder extends Seeder
         Model::unguard();
 
         $this->call('DaysTableSeeder');
+        $this->call('UsersTableSeeder');
         $this->call('FoodItemsTableSeeder');
 
         Model::reguard();

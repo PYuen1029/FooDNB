@@ -58,4 +58,9 @@ class foodItem extends Model
     public function day() {
         return $this->belongsTo('App\Day');
     }
+
+    public function users()
+    {
+        return $this->belongsToMany('App\User')->withTimestamps();
+    }
 }
