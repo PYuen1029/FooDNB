@@ -33,6 +33,9 @@ class AuthController extends Controller
         $this->middleware('guest', ['except' => 'getLogout']);
     }
 
+    // changes the default redirect path to / from /home
+    protected $redirectPath = '/';
+    
     /**
      * Get a validator for an incoming registration request.
      *
@@ -62,4 +65,6 @@ class AuthController extends Controller
             'password' => bcrypt($data['password']),
         ]);
     }
+
+
 }
