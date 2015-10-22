@@ -7,6 +7,8 @@ use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use App\Day;
 use App\FoodItem;
+use App\User;
+use Auth;
 
 class foodItemsController extends Controller
 {
@@ -96,10 +98,13 @@ class foodItemsController extends Controller
                 // subtract that difference to quantity
                 $food->quantity -= $diff;
 
+                // attach current foodItem to current user
+                Auth::User()->foodItems()->attach($food);
+
             }
 
             else {
-                abort(404);
+                return back();
             }
 
             
