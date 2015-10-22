@@ -49,6 +49,7 @@ class foodItemsController extends Controller
     public function store(Request $request, $dayID)
     {
         // set claimed to 0 when it is created
+
         $request['claimed'] = 0;
 
         $dayinput = Day::findOrFail($dayID)->foodItem()->create($request->all())->save();
@@ -96,23 +97,31 @@ class foodItemsController extends Controller
             // if so, find difference between $request->claimed and $food->claimed
             $diff = $rqstClm - $food->claimed;
 
-            // do some error checking to make sure quantity is great enough
-            if($diff <= $food->quantity){
-                // subtract that difference to quantity
-                $food->quantity -= $diff;
+            // if $diff is positive or zero that means foodItems were claimed or nothing was done
+            if ($diff >= 0){
+                // do some error checking to make sure quantity is great enough
+                if($diff <= $food->quantity){
+                    // subtract that difference to quantity
+                    $food->quantity -= $diff;
+                }
 
-                // attach current foodItem to current user
-                Auth::User()->foodItems()->attach($food);
-
+                // else quantity is too small, return back (and probably include a flash msg)
+                else {
+                    return back();
+                }
             }
 
-            else {
-                return back();
+            // if $diff is negative that means foodItems were unclaimed
+            else if ($diff < 0){
+                // add $diff to quantity 
+                $food->quantity += abs($diff);
             }
-
             
-        }
 
+            // either way attach current foodItem to current user
+            Auth::User()->foodItems()->attach($food);
+
+        }
 
         $food->update($request->all());
 

@@ -22,6 +22,13 @@ class foodItem extends Model
 
     // MUTATORS --------------------------------------------------------------
 
+    /**
+     * The attributes that should be mutated to dates.
+     *
+     * @var array
+     */
+    protected $dates = ['deleted_at'];
+
     // SCOPES ----------------------------------------------------------------
     public function scopeEdible($query)
     {
