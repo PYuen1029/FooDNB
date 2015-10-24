@@ -96,7 +96,7 @@ class foodItemsController extends Controller
 
             // if so, find difference between $request->claimed and $food->claimed
             $diff = $rqstClm - $food->claimed;
-
+            
             // if $diff is positive or zero that means foodItems were claimed or nothing was done
             if ($diff >= 0){
                 // do some error checking to make sure quantity is great enough
