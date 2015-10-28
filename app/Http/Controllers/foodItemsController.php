@@ -48,6 +48,7 @@ class foodItemsController extends Controller
      */
     public function store(Request $request, $dayID)
     {
+        // set claimed to 0 when it is created
         $request['claimed'] = 0;
 
         $dayinput = Day::findOrFail($dayID)->foodItem()->create($request->all())->save();
