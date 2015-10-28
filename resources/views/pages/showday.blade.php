@@ -16,12 +16,10 @@
 
     div.inline {
         margin: 0 auto;
-
     }
 
     div.inline input{
         padding: 0;
-        
     }
 
     a.delete {
@@ -33,12 +31,17 @@
     color: initial;
     }
 
-    form.qty-form.form-inline {
+    form.qty-form {
         padding-right: 0px;
     }
 
     .pull-right {
         padding-right: 0px;
+    }
+
+    label.col-xs-4.text-label {
+        padding-left: 5px;
+        padding-right: 5px;
     }
 
     .delete {
