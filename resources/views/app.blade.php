@@ -9,7 +9,7 @@
 	<link href="/css/bootstrap.css" rel="stylesheet">
 
 	<!-- Scripts -->
-	<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+	<script src="/js/jquery-2.1.4.js"></script>
 	<script src="/js/bootstrap.js"></script>
 
 	<!-- Fonts -->
