@@ -44,13 +44,17 @@
     color: initial;
     }
 
-/* DOES THIS WORK? */
     form.qty-form.form-inline {
         padding-right: 0px;
     }
 
     .pull-right {
         padding-right: 0px;
+    }
+
+    .text-label {
+        padding-left: 5px;
+        padding-right: 5px;
     }
 
     .delete {

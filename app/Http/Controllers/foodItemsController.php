@@ -116,9 +116,7 @@ class foodItemsController extends Controller
                 // add $diff to quantity 
                 $food->quantity += abs($diff);
 
-                Debugbar::info("Abs means absolute");
-
-                return back();
+                $food->save();
             }
             
 

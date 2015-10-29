@@ -27,7 +27,7 @@
             <!-- FORM INPUT FOR QUANTITY, WITH INC/DEC BUTTONS -->
             <input type="button" class="down col-xs-2" value="-" data-min="0"/>
 
-            {!! Form::text("$qtyOrClmd", $foodItem->claimed, 
+            {!! Form::text("$qtyOrClmd", null, 
             ['class' => "col-xs-2",
             'maxlength' => "2"]) !!}
             

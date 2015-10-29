@@ -39,7 +39,7 @@
         padding-right: 0px;
     }
 
-    label.col-xs-4.text-label {
+    .text-label {
         padding-left: 5px;
         padding-right: 5px;
     }
