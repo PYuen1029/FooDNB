@@ -24,9 +24,26 @@ class PagesController extends Controller
 
 		}
 
-		$days = Day::with('foodItem')->active()->orderBy('activate_time', 'DESC')->get();
+		// create a Carbon object for today at 7pm
+		$dayCheck = Carbon::create(null, null, null, 19, 0, 0);
 
-		return view('pages.index', compact('days'));
+		// check and set if today is already a Day on the database
+		if ($liveDay = Day::with('foodItem')->where('activate_time', "=", $dayCheck)->get()) {}
+
+		// ELSE IF CHECK IF TODAY IS A "LIVE DAY" AND CREATE A DAY, change the date after finished developing
+		else if ($dayCheck->dayOfWeek == Carbon::THURSDAY) {
+			$liveDay = Day::create(array(
+				'activate_time' => $dayCheck
+				));
+			$liveDay->get();
+		}		
+
+		// sets $activeDays to any Day with foodItems that is active, ordered from most recent to latest
+		$activeDays = Day::with('foodItem')->active()->orderBy('activate_time', 'DESC')->get();
+		
+		dd(compact('activeDays', 'liveDay', 'dayCheck'), $dayCheck->dayOfWeek);
+
+		return view('pages.index', compact('activeDays', 'liveDay'));
 		
 	}
 
@@ -38,6 +55,6 @@ class PagesController extends Controller
 	}
 }
 
-//////////////
+
 
 
