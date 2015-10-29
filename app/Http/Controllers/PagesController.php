@@ -35,6 +35,7 @@ class PagesController extends Controller
 			$liveDay = Day::create(array(
 				'activate_time' => $dayCheck
 				));
+			$liveDay->save();
 			$liveDay->get();
 		}		
 
