@@ -2,7 +2,6 @@
     margin: 0 auto;
     padding: 0;
     width: 80%;
-
 }
 
 li.pills {
@@ -51,4 +50,8 @@ text-decoration: none;
 
 .delete {
     padding-left: 0;
+}
+
+.fa-circle {
+    color: red;
 }
