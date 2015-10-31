@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "3c3700374a00d1f66a02699c6c962634",
+    "hash": "02637f685035e5d3c2e2fb7fcb389606",
     "packages": [
         {
             "name": "barryvdh/laravel-debugbar",
@@ -504,49 +504,6 @@
             "time": "2015-03-11 20:06:43"
         },
         {
-            "name": "laracasts/flash",
-            "version": "1.3.3",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/laracasts/flash.git",
-                "reference": "a2e237ae34fcc73c4b0755fe51d1ac2063be781e"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/laracasts/flash/zipball/a2e237ae34fcc73c4b0755fe51d1ac2063be781e",
-                "reference": "a2e237ae34fcc73c4b0755fe51d1ac2063be781e",
-                "shasum": ""
-            },
-            "require": {
-                "illuminate/support": "~5.0",
-                "php": ">=5.4.0"
-            },
-            "require-dev": {
-                "mockery/mockery": "dev-master"
-            },
-            "type": "library",
-            "autoload": {
-                "psr-0": {
-                    "Laracasts\\Flash": "src/"
-                },
-                "files": [
-                    "src/Laracasts/Flash/functions.php"
-                ]
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Jeffrey Way",
-                    "email": "jeffrey@laracasts.com"
-                }
-            ],
-            "description": "Easy flash notifications",
-            "time": "2015-02-01 20:07:15"
-        },
-        {
             "name": "laravel/framework",
             "version": "v5.1.19",
             "source": {
@@ -1025,6 +982,53 @@
                 "php"
             ],
             "time": "2015-09-19 14:15:08"
+        },
+        {
+            "name": "nwidart/db-exporter",
+            "version": "1.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/nWidart/DbExporter.git",
+                "reference": "ce8da8782ed1e478a761ec51cd4dedeff44ac654"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/nWidart/DbExporter/zipball/ce8da8782ed1e478a761ec51cd4dedeff44ac654",
+                "reference": "ce8da8782ed1e478a761ec51cd4dedeff44ac654",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/support": "4.*|5.*",
+                "php": ">=5.3.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "Nwidart\\DbExporter": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Nicolas Widart",
+                    "email": "n.widart@gmail.com"
+                }
+            ],
+            "description": "Export your database quickly and easily as a Laravel Migration and all the data as a Seeder class.",
+            "keywords": [
+                "artisan",
+                "command",
+                "database",
+                "export",
+                "laravel",
+                "migrations",
+                "php",
+                "seed"
+            ],
+            "time": "2015-04-24 05:56:41"
         },
         {
             "name": "psr/log",
@@ -2085,6 +2089,49 @@
                 "test"
             ],
             "time": "2015-05-11 14:41:42"
+        },
+        {
+            "name": "laracasts/flash",
+            "version": "1.3.3",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/laracasts/flash.git",
+                "reference": "a2e237ae34fcc73c4b0755fe51d1ac2063be781e"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/laracasts/flash/zipball/a2e237ae34fcc73c4b0755fe51d1ac2063be781e",
+                "reference": "a2e237ae34fcc73c4b0755fe51d1ac2063be781e",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/support": "~5.0",
+                "php": ">=5.4.0"
+            },
+            "require-dev": {
+                "mockery/mockery": "dev-master"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "Laracasts\\Flash": "src/"
+                },
+                "files": [
+                    "src/Laracasts/Flash/functions.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Jeffrey Way",
+                    "email": "jeffrey@laracasts.com"
+                }
+            ],
+            "description": "Easy flash notifications",
+            "time": "2015-02-01 20:07:15"
         },
         {
             "name": "mockery/mockery",

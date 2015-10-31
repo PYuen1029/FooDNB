@@ -37,12 +37,12 @@ class Day extends Model
      */
     public function scopeActive($query)
     {
-        // temporarily set it to Oct 7, just for testing
-        $dateRef = Carbon::create(2015, 10, 7, 15);
+        // SET TODAY'S DATE AS A REFERENCE TO AVOID INCLUDING TODAY'S LIVE ITEMS
+        $dateRef = Carbon::now;
 
         // change depending on far into the past you want days to be accessed
-        $dateRef->subDays(14);
-        $query->whereBetween('activate_time', [$dateRef, Carbon::now()]);
+        $dateRef->subDays(8);
+        $query->whereBetween('activate_time', [$dateRef, Carbon::yesterday()]);
     }
 
     /*
