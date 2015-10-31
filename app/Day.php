@@ -38,7 +38,7 @@ class Day extends Model
     public function scopeActive($query)
     {
         // SET TODAY'S DATE AS A REFERENCE TO AVOID INCLUDING TODAY'S LIVE ITEMS
-        $dateRef = Carbon::now;
+        $dateRef = Carbon::now();
 
         // change depending on far into the past you want days to be accessed
         $dateRef->subDays(8);
