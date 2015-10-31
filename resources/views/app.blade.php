@@ -18,9 +18,21 @@
 	@yield('css')
 
 	@yield('js')
-
+	<script>
+    	$(document).ready(function() {
+    		$('div.alert').delay(4500).slideUp(300);
+    	});
+	</script>
 </head>
 <body>
+	<!-- FLASH MESSAGE -->
+	@if (Session::has('flash_message'))
+		<div class="alert alert-{{ session('flash_level') }}">
+			{{ session('flash_message') }}
+		</div>
+	@endif
+
+	<!-- NAV BAR -->
 	<nav class="navbar navbar-default">
 		<div class="container-fluid">
 			<div class="navbar-header">

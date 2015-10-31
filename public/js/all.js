@@ -11574,3 +11574,50 @@ if (typeof jQuery === 'undefined') {
 }(jQuery);
 
 //# sourceMappingURL=all.js.map
+
+<script>
+  $(document).ready(function() {
+        $(".up").on('click',function(){
+            var $incdec = $(this).prev();
+            if ($incdec.val() < $(this).data("max")) {
+                $incdec.val(parseInt($incdec.val(), 10) + 1);
+            }
+        });
+
+        $(".down").on('click',function(){
+            var $incdec = $(this).next();
+            if ($incdec.val() > $(this).data("min")) {
+            $incdec.val(parseInt($incdec.val(), 10) - 1);
+            }
+        });
+    });
+</script>
+
+
+<!-- CHECK IF $LIVEDAY IS SET -->
+@if(isset($liveDay))
+    <!-- IF $LIVEDAY IS SET, CREATE NEW foodItemForm ON CLICK, CONTAINS NEW FORM CODE, when I want I should assign a placeholder value for name -->
+    <script type="text/javascript">
+        $(document).ready(function () {
+            str_to_append = '<li class="list-group-item" id="new-create">{!! Form::open([ "method"=> "POST", "route"=> ["days.foodItems.store", $liveDay->id], "class"=> "qty-form form-inline col-xs-11"]) !!}{!! Form::text("name", null, [ "class"=> "col-xs-5",]) !!}<span class="pull-right col-xs-7">{!! Form::label("Quantity:", "", [ "class"=> "col-xs-4 text-label"] )!!}<input type="button" class="down col-xs-2" value="-" data-min="0"/>{!! Form::text("quantity", 0, ["class"=> "col-xs-2", "maxlength"=> "2"]) !!}<input type="button" class="up col-xs-2" value="+" data-max="50"/><input type="submit" class="submit col-xs-2" value="&#x2705" name="submit"/> </span>{!! Form::close() !!}<span class="col-xs-1 delete"> <input type="submit" class="close-create col-xs-12" value="&#x2715" name="delete"/> </span> </li>';
+
+            // $("#foodItemRows").append(str_to_append);
+            
+            $(".addRow").on('click',function(){
+                $("#foodItemRows").append(str_to_append);
+            });
+
+            $("#foodItemRows").on("click", ".close-create", function(){
+                $("#new-create").remove();
+            });
+        });
+
+    </script>
+@endif
+
+<script type="text/javascript">
+$(".delete").click(function () {
+  window.location.href = $(this).data('href');
+});
+
+</script>

@@ -37,7 +37,7 @@ class foodItemsController extends Controller
      */
     public function create()
     {
-        //
+        //z
     }
 
     /**
@@ -48,13 +48,18 @@ class foodItemsController extends Controller
      */
     public function store(Request $request, $dayID)
     {
-        // set claimed to 0 when it is created
+
+        // SET CLAIMED TO 0 WHEN IT IS CREATED
 
         $request['claimed'] = 0;
 
         $dayinput = Day::findOrFail($dayID)->foodItem()->create($request->all())->save();
 
-        return back();
+        // RETURN BACK WITH A CREATED NEW FOODITEM SUCCESS FLASH MESSAGE
+        return back()->with([
+            'flash_message' => "The leftover food item was added.",
+            'flash_level' => "success"
+            ]);
     }
 
     /**
@@ -105,9 +110,12 @@ class foodItemsController extends Controller
                     $food->quantity -= $diff;
                 }
 
-                // else quantity is too small, return back (and probably include a flash msg)
+                // ELSE QUANTITY IS TOO SMALL, RETURN BACK WITH FLASH MESSAGE
                 else {
-                    return back();
+                    return back()->with([
+                        'flash_message' => "There was not enough $food->name available. Please lower the claimed quantity.",
+                        'flash_level' => "danger"
+                    ]);
                 }
             }
 
@@ -127,7 +135,10 @@ class foodItemsController extends Controller
 
         $food->update($request->all());
 
-        return back();
+        return back()->with([
+            'flash_message' => "The $food->name was updated.",
+            'flash_level' => "success"
+            ]);
     }
 
     /**
@@ -138,10 +149,15 @@ class foodItemsController extends Controller
      */
     public function destroy($dayID, $foodID)
     {
+        $food = foodItem::findOrFail($foodID)->name;
+
         $destroy = foodItem::findOrFail($foodID);
         
         $destroy->delete();
 
-        return back();
+        return back()->with([
+            'flash_message' => "The leftover $food item was deleted.",
+            'flash_level' => "warning"
+            ]);
     }
 }

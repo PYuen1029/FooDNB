@@ -39,11 +39,13 @@
 
     {!! Form::close() !!}
 
-    {!! Form::open([
-        'method' => 'DELETE',
-        'route' => ['days.foodItems.destroy', $day->id, $foodItem->id],
-        'class' => "col-xs-1 delete"
-    ]) !!}
-        <input type="submit" class="col-xs-12" value="&#x2715" name="delete" />
+    @if ($qtyOrClmd === "quantity")
+        {!! Form::open([
+            'method' => 'DELETE',
+            'route' => ['days.foodItems.destroy', $day->id, $foodItem->id],
+            'class' => "col-xs-1 delete"
+        ]) !!}
+            <input type="submit" class="col-xs-12" value="&#x2715" name="delete" />
 
-    {!! Form::close() !!}
+        {!! Form::close() !!}
+    @endif

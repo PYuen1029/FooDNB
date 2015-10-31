@@ -56,6 +56,8 @@ $(".delete").click(function () {
 
 </script>
 
+<!-- SLIDE UP FLASH MESSAGE IF IT'S NOT IMPORTANT -->
+
 @stop
 
 
