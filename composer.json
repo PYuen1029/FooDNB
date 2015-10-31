@@ -10,7 +10,8 @@
         "illuminate/html": "^5.0",
         "bestmomo/scafold": "dev-master",
         "barryvdh/laravel-debugbar": "^2.0",
-        "nwidart/db-exporter": "^1.1"
+        "nwidart/db-exporter": "^1.1",
+        "ext-mbstring": "*"
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",
