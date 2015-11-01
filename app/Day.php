@@ -42,7 +42,7 @@ class Day extends Model
 
         // change depending on far into the past you want days to be accessed
         $dateRef->subDays(8);
-        $query->whereBetween('activate_time', [$dateRef, Carbon::create(null, null, 0, 0, 0, 0)]);
+        $query->whereBetween('activate_time', [$dateRef, Carbon::create(null, null, null, 0, 0, 0)]);
     }
 
     /*
