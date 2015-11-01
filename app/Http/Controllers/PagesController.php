@@ -34,7 +34,7 @@ class PagesController extends Controller
 		}
 
 		// ELSE IF CHECK IF TODAY IS A "LIVE DAY" AND CREATE A DAY, change the date after finished developing
-		else if (($dayCheck->dayOfWeek === Carbon::MONDAY) || ($dayCheck->dayOfWeek === Carbon::WEDNESDAY) || ($dayCheck->dayOfWeek === Carbon::FRIDAY) || ($dayCheck->dayOfWeek === Carbon::SATURDAY)) {
+		else if (($dayCheck->dayOfWeek === Carbon::MONDAY) || ($dayCheck->dayOfWeek === Carbon::WEDNESDAY) || ($dayCheck->dayOfWeek === Carbon::FRIDAY) || ($dayCheck->dayOfWeek === Carbon::SUNDAY)) {
 			
 			$liveDay = Day::create(array('activate_time' => $dayCheck));
 			
