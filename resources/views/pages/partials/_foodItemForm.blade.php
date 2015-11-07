@@ -45,7 +45,7 @@
             'route' => ['days.foodItems.destroy', $day->id, $foodItem->id],
             'class' => "col-xs-2 delete"
         ]) !!}
-            <input type="submit" class="col-xs-12" value="&#x2716" name="delete" />
+            <input type="submit" class="col-xs-6" value="&#x2716" name="delete" />
 
         {!! Form::close() !!}
     @endif
