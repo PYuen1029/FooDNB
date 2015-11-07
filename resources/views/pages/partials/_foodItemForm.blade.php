@@ -5,7 +5,7 @@
             'class' => "qty-form form-inline col-xs-11"
         ]) 
     !!}
-            
+        <!-- name input -->
         {!! Form::text('name', null, [
             'class' => 'col-xs-5',
             ]) !!}
@@ -26,7 +26,7 @@
 
             <!-- FORM INPUT FOR QUANTITY, WITH INC/DEC BUTTONS -->
             <input type="button" class="down col-xs-2" value="-" data-min="0"/>
-
+            <!-- quantity or claimed input -->
             {!! Form::text("$qtyOrClmd", null, 
             ['class' => "col-xs-2",
             'maxlength' => "2"]) !!}
