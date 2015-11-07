@@ -2,7 +2,7 @@
     {!! Form::model($foodItem, 
             ['method' => 'PATCH', 
             'route' => ['days.foodItems.update', $day->id, $foodItem->id],
-            'class' => "qty-form form-inline col-xs-11"
+            'class' => "qty-form form-inline col-xs-10"
         ]) 
     !!}
         <!-- name input -->
@@ -14,12 +14,12 @@
             <!-- LABEL FOR CLAIMED OR INSTRUCTIONS (QUANTITY) -->
             @if ($qtyOrClmd == "claimed")
                 {!! Form::label('claimed', "Free: $foodItem->quantity", [
-                    'class' => "col-xs-4 text-label"]
+                    'class' => "col-xs-3 text-label"]
                 )!!}
 
             @else
                 {!! Form::label('quantity', "Quantity:", [
-                    'class' => "col-xs-4 text-label"]
+                    'class' => "col-xs-3 text-label"]
                 )!!}
 
             @endif
@@ -28,7 +28,7 @@
             <input type="button" class="down col-xs-2" value="&#x2796" data-min="0"/>
             <!-- quantity or claimed input -->
             {!! Form::text("$qtyOrClmd", null, 
-            ['class' => "col-xs-2",
+            ['class' => "col-xs-3",
             'maxlength' => "2"]) !!}
             
             <input type="button" class="up col-xs-2" value="&#x2795" data-max="50"/>
@@ -43,7 +43,7 @@
         {!! Form::open([
             'method' => 'DELETE',
             'route' => ['days.foodItems.destroy', $day->id, $foodItem->id],
-            'class' => "col-xs-1 delete"
+            'class' => "col-xs-2 delete"
         ]) !!}
             <input type="submit" class="col-xs-12" value="&#x2716" name="delete" />
 
