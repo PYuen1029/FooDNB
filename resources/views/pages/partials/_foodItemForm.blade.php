@@ -25,13 +25,13 @@
             @endif
 
             <!-- FORM INPUT FOR QUANTITY, WITH INC/DEC BUTTONS -->
-            <input type="button" class="down col-xs-2" value="-" data-min="0"/>
+            <input type="button" class="down col-xs-2" value="&#x2796" data-min="0"/>
             <!-- quantity or claimed input -->
             {!! Form::text("$qtyOrClmd", null, 
             ['class' => "col-xs-2",
             'maxlength' => "2"]) !!}
             
-            <input type="button" class="up col-xs-2" value="+" data-max="50"/>
+            <input type="button" class="up col-xs-2" value="&#x2795" data-max="50"/>
             <!-- ::END:: FORM INPUT FOR QUANTITY, WITH INC/DEC BUTTONS -->
             
             <input type="submit" class="submit col-xs-2" value="&#x2714" name="submit" /> 
@@ -45,7 +45,7 @@
             'route' => ['days.foodItems.destroy', $day->id, $foodItem->id],
             'class' => "col-xs-1 delete"
         ]) !!}
-            <input type="submit" class="col-xs-12" value="&#x2715" name="delete" />
+            <input type="submit" class="col-xs-12" value="&#x2716" name="delete" />
 
         {!! Form::close() !!}
     @endif
