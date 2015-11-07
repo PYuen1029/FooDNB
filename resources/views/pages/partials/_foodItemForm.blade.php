@@ -34,7 +34,7 @@
             <input type="button" class="up col-xs-2" value="+" data-max="50"/>
             <!-- ::END:: FORM INPUT FOR QUANTITY, WITH INC/DEC BUTTONS -->
             
-            <input type="submit" class="submit col-xs-2" value="&#x2705" name="submit" /> 
+            <input type="submit" class="submit col-xs-2" value="&#x2714" name="submit" /> 
         </span>
 
     {!! Form::close() !!}
