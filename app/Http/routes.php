@@ -11,7 +11,9 @@
 |
 */
 
-Route::get('/', 'PagesController@index');
+Route::get('/', [
+	'as' 	=> 	'index',
+	'uses'	=>	'PagesController@index']);
 
 Route::controllers([
     'auth' => 'Auth\AuthController',

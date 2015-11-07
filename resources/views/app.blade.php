@@ -32,6 +32,8 @@
 		</div>
 	@endif
 
+	@include('errors.alerts')
+
 	<!-- NAV BAR -->
 	<nav class="navbar navbar-default">
 		<div class="container-fluid">

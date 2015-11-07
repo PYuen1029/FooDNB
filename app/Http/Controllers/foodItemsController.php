@@ -37,7 +37,7 @@ class foodItemsController extends Controller
      */
     public function create()
     {
-        //z
+        //
     }
 
     /**
@@ -46,7 +46,7 @@ class foodItemsController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request, $dayID)
+    public function store(Requests\foodItemRequest $request, $dayID)
     {
 
         // SET CLAIMED TO 0 WHEN IT IS CREATED
@@ -96,11 +96,11 @@ class foodItemsController extends Controller
 
         $food = Day::findOrFail($dayID)->foodItem()->findOrFail($foodID);
 
-        // check if $request->claimed exists
-        if ($rqstClm = $request->claimed){
+        // check if $request->claimed exists to know it's a claim update
+        if (isset($request->claimed)){
 
             // if so, find difference between $request->claimed and $food->claimed
-            $diff = $rqstClm - $food->claimed;
+            $diff = $request->claimed - $food->claimed;
             
             // if $diff is positive or zero that means foodItems were claimed or nothing was done
             if ($diff >= 0){
@@ -125,8 +125,11 @@ class foodItemsController extends Controller
                 $food->quantity += abs($diff);
 
                 $food->save();
+
+                // dd ($food, abs($diff));
             }
             
+            // dd($diff, $food);
 
             // either way attach current foodItem to current user
             Auth::User()->foodItems()->attach($food);
