@@ -55,3 +55,11 @@ text-decoration: none;
 .fa-circle {
     color: red;
 }
+
+.custom-col-xs-10 {
+    width: 90%;
+}
+
+.custom-col-xs-2 {
+    width: 9%;
+}

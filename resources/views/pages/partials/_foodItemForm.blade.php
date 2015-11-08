@@ -2,7 +2,7 @@
     {!! Form::model($foodItem, 
             ['method' => 'PATCH', 
             'route' => ['days.foodItems.update', $day->id, $foodItem->id],
-            'class' => "qty-form form-inline col-xs-10"
+            'class' => "qty-form form-inline col-xs-10 custom-col-xs-10"
         ]) 
     !!}
         <!-- name input -->
@@ -43,9 +43,9 @@
         {!! Form::open([
             'method' => 'DELETE',
             'route' => ['days.foodItems.destroy', $day->id, $foodItem->id],
-            'class' => "col-xs-2 delete"
+            'class' => "col-xs-2 custom-col-xs-2 delete"
         ]) !!}
-            <input type="submit" class="col-xs-6" value="&#x2716" name="delete" />
+            <input type="submit" class="col-xs-12 negative-margins-" value="&#x2716" name="delete" />
 
         {!! Form::close() !!}
     @endif
