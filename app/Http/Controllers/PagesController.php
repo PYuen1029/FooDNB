@@ -25,7 +25,7 @@ class PagesController extends Controller
 		}
 
 		// create a Carbon object for today at 7pm
-		$dayCheck = Carbon::create(null, null, null, 12);
+		$dayCheck = Carbon::create(null, null, null, 19);
 
 		// check and set if today is already a Day on the database
 		if (Day::with('foodItem')->where('activate_time', "=", $dayCheck)->exists()) {
@@ -34,7 +34,7 @@ class PagesController extends Controller
 		}
 
 		// ELSE IF CHECK IF TODAY IS A "LIVE DAY" AND CREATE A DAY, change the date after finished developing
-		else if (($dayCheck->dayOfWeek === Carbon::MONDAY) || ($dayCheck->dayOfWeek === Carbon::WEDNESDAY) || ($dayCheck->dayOfWeek === Carbon::FRIDAY) || ($dayCheck->dayOfWeek === Carbon::SATURDAY)) {
+		else if (($dayCheck->dayOfWeek === Carbon::MONDAY) || ($dayCheck->dayOfWeek === Carbon::WEDNESDAY) || ($dayCheck->dayOfWeek === Carbon::FRIDAY) || ($dayCheck->dayOfWeek === Carbon::SUNDAY)) {
 			
 			$liveDay = Day::create(array('activate_time' => $dayCheck));
 			
