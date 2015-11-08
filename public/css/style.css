@@ -16,7 +16,7 @@ li.pills {
 
 .list-group-item {
     min-height: 50px;
-    padding: 10px 8px;
+    padding: 10px 0px;
 }
 
 div.inline {
