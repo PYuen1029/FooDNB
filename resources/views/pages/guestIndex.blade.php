@@ -2,14 +2,14 @@
 
 @section('content')
 <div class="container">
-	<h1> Welcome to FooDNB: a leftovers tracker for Houston's Food Not Bombs charity </h1>
+	<h1> Welcome to FooDNB: a web app that tracks leftovers </h1>
 
 	<h2 id="foodnb"> What is FooDNB? </h2>
 
-		<p>FooDNB is a catalogue system to record leftover food from the Food Not Bombs charity. For the Houston branch, they meet every Monday, Wednesday, Friday night at 8pm, and Sunday night at 7 pm to serve healthy vegan food to anyone who lines up and is hungry (at 521 Lamar 77002 (Downtown Library Courtyard). The problem is afterward, there is often some food that wasn’t served or picked up by volunteers or other charities, and sometimes this food goes to waste. </p>
+		<p>FooDNB is a free unofficial and unaffiliated catalogue system to record leftover food from food sharing organizations and community groups. I am currently looking for organizations that think this web app might be helpful for them to use. Please drop me a line if you're interested at nobisnews@gmail.com </p>
 
 	<h3 id="what-problem-does-this-app-solve">What problem does this app solve?</h3>
-		<p>This web app intends to reduce the amount of waste by making it easily known to Food Not Bombs volunteers what food is leftover, so they can see what’s available and claim it and use it to share later on in the week. </p>
+		<p>This simple web app intends to reduce the amount of waste by making it easily known to volunteers what food is leftover, so they can see what’s available and claim it and use it to share later on in the week. </p>
 
 	<h3 id="what-is-it">What is it?</h3>
 
@@ -37,6 +37,6 @@
 				</ul>
 
 	<h3 id="how-do-I-get"> How do I get involved?</h3>
-		<p> You can register on the top right corner, and see what leftovers is available. And of course you can join us at 521 Lamar 77002 (Downtown Library Courtyard) Mon., Wed., Fri. 8pm, and Sun. 7pm. Bring vegan food or just bring yourself! We have bowls and spoons. For more information about Houston Food Not Bombs, visit <a href="http://houstonfoodnotbombs.org/"> their website. </a> </p>
+		<p> This is a demo website. If you are part of a charity organization and are interested in this web app, please drop me a line at nobisnews@gmail.com. I am willing to customize this app to best meet your charity's needs. </a> </p>
 </div>
 @stop
