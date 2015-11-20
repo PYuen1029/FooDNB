@@ -94,6 +94,13 @@ class foodItemsController extends Controller
     public function update(Request $request, $dayID, $foodID)
     {
 
+        /* probably going to be like: 
+        new foodItem = foodItem::findOrFail($foodID);
+        and then call 
+        
+         */ 
+
+
         $food = Day::findOrFail($dayID)->foodItem()->findOrFail($foodID);
 
         // check if $request->claimed exists to know it's a claim update
