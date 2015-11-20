@@ -101,47 +101,7 @@ class foodItemsController extends Controller
          */ 
 
 
-        $food = Day::findOrFail($dayID)->foodItem()->findOrFail($foodID);
-
-        // check if $request->claimed exists to know it's a claim update
-        if (isset($request->claimed)){
-
-            // if so, find difference between $request->claimed and $food->claimed
-            $diff = $request->claimed - $food->claimed;
-            
-            // if $diff is positive or zero that means foodItems were claimed or nothing was done
-            if ($diff >= 0){
-                // do some error checking to make sure quantity is great enough
-                if($diff <= $food->quantity){
-                    // subtract that difference to quantity
-                    $food->quantity -= $diff;
-                }
-
-                // ELSE QUANTITY IS TOO SMALL, RETURN BACK WITH FLASH MESSAGE
-                else {
-                    return back()->with([
-                        'flash_message' => "There was not enough $food->name available. Please lower the claimed quantity.",
-                        'flash_level' => "danger"
-                    ]);
-                }
-            }
-
-            // if $diff is negative that means foodItems were unclaimed
-            else if ($diff < 0){
-                // add $diff to quantity 
-                $food->quantity += abs($diff);
-
-                $food->save();
-
-                // dd ($food, abs($diff));
-            }
-            
-            // dd($diff, $food);
-
-            // either way attach current foodItem to current user
-            Auth::User()->foodItems()->attach($food);
-
-        }
+        $food = foodItem::findOrFail($foodID)->sufficientQuantity($request);
 
         $food->update($request->all());
 
